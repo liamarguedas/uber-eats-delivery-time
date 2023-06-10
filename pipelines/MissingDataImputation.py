@@ -6,4 +6,5 @@ def ImputeValues(data: pd.DataFrame):
 	data.loc[data['Delivery_person_Ratings'].isna(), 'Delivery_person_Ratings'] = 4.7
 	data.loc[data['Festival'].isna(), 'Festival'] = 'No'
 	data.loc[data['Delivery_person_Age'].isna(), 'Delivery_person_Age'] = 29.0
+	data = data.drop('TotalNaN', axis = 1)
 	return data
