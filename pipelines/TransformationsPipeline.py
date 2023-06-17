@@ -8,7 +8,7 @@ class MapMissingValues(BaseEstimator, TransformerMixin):
         
         if not isinstance(data, pandas.DataFrame):
             
-            raise ValueError('data should be type pandas.DataFrame')
+            raise ValueError('data should be type pandas.DataFrame') 
         
         self.data = data
         
@@ -16,9 +16,10 @@ class MapMissingValues(BaseEstimator, TransformerMixin):
         
         return self
     
-    def transform(self, X):
+    def transform(self, X, copy = False):
         
-        X = X.copy()
+        if copy:
+            X = X.copy()
         
         for column in self.data.columns:
             
@@ -39,9 +40,10 @@ class DateTime(BaseEstimator, TransformerMixin):
         
         return self
     
-    def transform(self, X):
+    def transform(self, X, copy = False):
         
-        X = X.copy()
+        if copy:
+            X = X.copy()
         
         X['Time_Orderd'] = X['Order_Date'] + ' ' + X['Time_Orderd']
         X['Time_Order_picked'] = X['Order_Date'] + ' ' + X['Time_Order_picked']
@@ -72,9 +74,10 @@ class SetDtypes(BaseEstimator, TransformerMixin):
         
         return self
     
-    def transform(self, X):
+    def transform(self, X, copy = False):
         
-        X = X.copy()
+        if copy:
+            X = X.copy()
         X['Delivery_person_Age'] = X['Delivery_person_Age'].astype(float)
         X['Delivery_person_Ratings'] = X['Delivery_person_Ratings'].astype(float)
         X['multiple_deliveries'] = X['multiple_deliveries'].astype(float)
@@ -95,9 +98,10 @@ class TransformStr(BaseEstimator, TransformerMixin):
         
         return self
     
-    def transform(self, X):
+    def transform(self, X, copy = False):
         
-        X = X.copy()
+        if copy:
+            X = X.copy()
         
         X['Weatherconditions'] = X['Weatherconditions'].apply(lambda value: value.split(' ')[-1])
         
@@ -119,9 +123,10 @@ class ImputeMissingValues(BaseEstimator, TransformerMixin):
         
         return self
     
-    def transform(self, X):
+    def transform(self, X, copy = False):
         
-        X = X.copy()
+        if copy:
+            X = X.copy()
         X['TotalNaN'] = X.isna().sum(axis = 1)
         X = X[X['TotalNaN'] < 5]
         X.loc[X['City'].isna(), 'City'] = 'Metropolitian'
@@ -148,9 +153,10 @@ class GetDistances(BaseEstimator, TransformerMixin):
         
         return self
     
-    def transform(self, X, quantile99 = 20.851726357533593):
+    def transform(self, X, copy = False , quantile99 = 20.851726357533593):
         
-        X = X.copy()
+        if copy:
+            X = X.copy()
         
         X['DeliveryDistance'] = numpy.zeros_like(X.shape[0])
 
