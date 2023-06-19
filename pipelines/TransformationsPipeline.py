@@ -172,4 +172,31 @@ class GetDistances(BaseEstimator, TransformerMixin):
             
             X.at[index, 'DeliveryDistance'] = distance
             
-        return X        
+        return X
+    
+class FeatureEngineering(BaseEstimator, TransformerMixin):
+    def __init__(self, data):
+        
+        if not isinstance(data, pandas.DataFrame):
+            
+            raise ValueError('data should be type pandas.DataFrame')
+        
+        self.data = data
+        
+    def fit(self, X, y = None):
+        
+        return self
+    
+    def transform(self, X, copy = False ):
+        
+        if copy:
+            X = X.copy()
+            
+        X['City'] = X['City'].apply(lambda value: 'Urban' if value == 'Semi-Urban' else value)
+        X = X[['Delivery_person_Age', 'Delivery_person_Ratings', 'Weatherconditions',
+       'Road_traffic_density', 'Vehicle_condition', 'Type_of_order',
+       'Type_of_vehicle', 'multiple_deliveries', 'City', 'Order_Day',
+       'DeliveryDistance', 'OrderTime', 'TypeOfMeal']]
+        X = pandas.get_dummies(X, drop_first = True)
+        
+        return X
