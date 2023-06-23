@@ -1,0 +1,43 @@
+# Package Overview
+package_name: uber-eats-delivery-time
+
+# Data Files
+training_data_file: training_data.csv
+test_data_file: test.csv
+
+# Variables
+target: Time_taken(min)
+
+pipeline_name: TransformationsPipeline
+
+features:
+  - Delivery_person_Age
+  - Delivery_person_Ratings
+  - Vehicle_condition
+  - multiple_deliveries
+  - DeliveryDistance
+  - OrderTime
+  - Weatherconditions_Fog
+  - Weatherconditions_Sandstorms
+  - Weatherconditions_Stormy
+  - Weatherconditions_Sunny
+  - Weatherconditions_Windy
+  - Road_traffic_density_Jam
+  - Road_traffic_density_Low
+  - Road_traffic_density_Medium
+  - Type_of_order_Drinks
+  - Type_of_order_Meal
+  - Type_of_order_Snack
+  - Type_of_vehicle_scooter
+  - City_Urban
+  - Order_Day_Monday
+  - Order_Day_Saturday
+  - Order_Day_Sunday
+  - Order_Day_Thursday
+  - Order_Day_Tuesday
+  - Order_Day_Wednesday
+  - TypeOfMeal_Dinner
+  - TypeOfMeal_Launch
+
+# to set the random seed
+random_state: 42
