@@ -106,4 +106,76 @@ Apart from the impact of multiple deliveries, the statistical characteristics of
 ### Delivery person app rating
 
 ![rating-target.png](https://raw.githubusercontent.com/liamarguedas/uber-eats-delivery-time/main/reports/figures/rating-delivery-distance.png)
+
+The analysis of driver ratings reveals several noteworthy findings. The vast majority of drivers have ratings higher than 4.0, indicating that the overall quality of drivers is generally quite high.
+
+The range of ratings spans from 2.5 to 5.0, with a mean rating of 4.7. This suggests that the average driver is highly rated by customers, indicating a positive perception of their service quality.
+
+
 ![rating-delivery-distance.png](https://raw.githubusercontent.com/liamarguedas/uber-eats-delivery-time/main/reports/figures/rating-target.png)
+
+A clear relationship emerges between driver ratings and delivery times. Lower ratings are associated with slower delivery times. Specifically, delivery personnel with ratings below 4.5 have an average delivery time of 35 minutes, while those with ratings higher than 4.5 have an average delivery time of around 24 minutes. This correlation indicates that drivers with higher ratings tend to deliver orders more efficiently.
+
+Furthermore, it is important to note that there is a scarcity of drivers with ratings below 3.5. Less than 200 drivers fall into this category, which constitutes less than 0.004% of the total population. This scarcity implies that the impact of low-rated drivers on the overall model performance may be less significant than initially anticipated.
+
+### Delivery Distance
+
+In order to analyze the distances between coordinates, the haversine formula was employed. This formula allowed for the calculation of accurate distances, taking into account the curvature of the Earth. During the analysis, outliers in the delivery distance data were identified and treated as missing values. These outliers were likely a result of errors in the formula or potential usage of a VPN, leading to inaccurate distance measurements.
+
+By replacing the outliers with the mean distance by delivery time, the standard deviation was reduced, and the mean and median became more comparable. This adjustment helped in achieving a more representative measure of central tendency. 
+
+![Delivery-distance.png](https://raw.githubusercontent.com/liamarguedas/uber-eats-delivery-time/main/reports/figures/Delivery-distance.png)
+
+Interestingly, as the time taken for delivery increased, the average distance traveled also tended to increase. This correlation suggests that longer distances may contribute to longer delivery times.
+
+Most of the delivery distances fell within the range of 1 to 20 km, indicating that this was the typical distance range for most deliveries.
+
+There was an observed relationship between high-rated delivery personnel and shorter delivery distances. This suggests that higher-rated drivers tend to handle deliveries that are relatively closer in proximity.
+
+Semi-urban deliveries, on average, took around 45 minutes or longer. This finding indicates that delivery times for semi-urban areas were generally higher compared to other locations, potentially due to factors such as traffic congestion or greater distance to the destination.
+
+![delivery-distance-target-typeofmeal.png](https://raw.githubusercontent.com/liamarguedas/uber-eats-delivery-time/main/reports/figures/delivery-distance-target-typeofmeal.png)
+
+A notable trend observed in the data is that the majority of orders are placed during late-night hours. This suggests that late-night orders are quite common among customers.
+
+Furthermore, it was found that early orders generally have shorter delivery times compared to late-night orders. This indicates that deliveries made during the early hours are typically completed more quickly, possibly due to lower overall demand or reduced traffic congestion during those times.
+
+Interestingly, it was observed that multiple deliveries, specifically those involving three deliveries, only occur after 10 am. This suggests that the occurrence of multiple deliveries is more common during daytime hours, potentially indicating higher demand or a busier delivery schedule during that time period.
+
+When considering the delivery distance based on meal type, it was found that the distance traveled for breakfast and lunch orders is generally lower compared to dinner orders. This disparity could be attributed to various factors, such as different customer preferences, the availability of nearby breakfast and lunch options, or the nature of dinner orders being more inclined towards delivery from distant locations.
+
+### Multiple order delivery
+
+![target-multiple-deliveries.png](https://raw.githubusercontent.com/liamarguedas/uber-eats-delivery-time/main/reports/figures/target-multiple-deliveries.png)
+
+The analysis reveals that the majority of delivery personnel were carrying either one or two orders during their deliveries. This suggests that single or double order deliveries are most common among the delivery workforce.
+
+On average, it was found that an increase in multiple deliveries is associated with an increase in the total distance traveled by the delivery personnel. This finding implies that handling multiple deliveries often requires covering more ground, resulting in longer overall distances.
+
+### Order Time
+
+![order-time-target.png](https://raw.githubusercontent.com/liamarguedas/uber-eats-delivery-time/main/reports/figures/order-time-target.png)
+
+The analysis indicates that a significant number of people tend to place their orders during late-night hours. This suggests a notable demand for delivery services during this time period.
+
+Furthermore, there is a clear relationship between the timing of orders and the corresponding delivery times. Early orders generally have shorter delivery times compared to late-night orders, implying that deliveries made during the early hours are typically completed more quickly. This could be attributed to factors such as lower overall demand, less traffic congestion, or more efficient operations during the early hours.
+
+On the other hand, late-night orders tend to have longer delivery times. This could be due to various factors, including increased demand during those hours, potential staff shortages, or a higher volume of orders to be processed.
+
+The observed pattern of early orders having shorter delivery times and late-night orders having longer delivery times highlights the importance of considering the time of order placement when managing delivery operations. It can help businesses allocate resources effectively, adjust staffing levels, and optimize delivery routes to meet the expected demand during different time periods.
+
+### Order Day
+
+![order-time-target.png](https://raw.githubusercontent.com/liamarguedas/uber-eats-delivery-time/main/reports/figures/order-day-city.png)
+![order-time-target.png](https://raw.githubusercontent.com/liamarguedas/uber-eats-delivery-time/main/reports/figures/order-day-city-distance.png)
+
+The analysis reveals that Friday and Wednesday are the days with the highest number of orders, indicating a greater demand for delivery services on these days. However, delivery times vary across different days of the week.
+
+It was found that Wednesday orders tend to take longer to be delivered compared to other days, suggesting potential factors such as higher order volumes, increased traffic congestion, or operational challenges specific to Wednesdays.
+
+In contrast, Tuesday and Thursday are the days when deliveries are made faster, with shorter average delivery times observed. This could be attributed to factors such as lower order volumes, more efficient operations, or favorable traffic conditions on these particular weekdays.
+
+Interestingly, while there are variations in delivery times across different days, the day of the week does not seem to be a decisive factor in determining delivery times. Other factors, such as order volume, traffic conditions, or operational efficiency, may have a stronger influence.
+
+## Solving the problem
+
