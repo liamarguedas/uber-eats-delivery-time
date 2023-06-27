@@ -244,7 +244,7 @@ The distribution of predictions and actual values was found to be similar, sugge
 
 Overall, the model exhibited impressive performance, with an average error of only 1 minute. This indicates its ability to make accurate predictions of delivery times based on the provided features.
 
-## Research to Production
+## Research environment to Production
 
 The model was prepared and packaged for deployment using a modular architecture from AWS. This architecture provides a framework that allows different development roles to work on their respective parts of the system while abstracting the complexity of integration, security, and environment configuration.
 
