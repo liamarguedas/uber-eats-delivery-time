@@ -74,5 +74,36 @@ The entire process of addressing the problem and working towards a solution was 
 - [4.0-machine-learning-modeling.ipynb](https://github.com/liamarguedas/uber-eats-delivery-time/blob/main/notebooks/4.0-machine-learning-modeling.ipynb)
 - [5.0-solving-steps-and-final-solution.ipynb](https://github.com/liamarguedas/uber-eats-delivery-time/blob/main/notebooks/5.0-solving-steps-and-final-solution.ipynb)
 
+ These notebooks served as comprehensive records of the methodologies employed, including any data preprocessing techniques applied, feature transformation methods utilized, and feature engineering strategies implemented. 
 
- These notebooks served as comprehensive records of the methodologies employed, including any data preprocessing techniques applied, feature transformation methods utilized, and feature engineering strategies implemented. Additionally, the notebooks documented the specific algorithms, models, or techniques used for prediction, along with any parameter tuning or optimization performed. This documentation not only facilitated transparency and reproducibility but also provided a valuable resource for future reference, allowing for easy sharing of insights, methodologies, and findings with colleagues and stakeholders. By maintaining a systematic record of the entire project within the notebooks, it ensured a thorough understanding of the process and laid the foundation for future improvements and iterations.
+Additionally, the notebooks documented the specific algorithms, models, or techniques used for prediction. This documentation not only facilitated transparency and reproducibility but also provided a valuable resource for future reference, allowing for easy sharing of insights, methodologies, and findings with colleagues and stakeholders. By maintaining a systematic record of the entire project within the notebooks, it ensured a thorough understanding of the process and laid the foundation for future improvements and iterations.
+
+## Important Data insights
+### Target and numeric features correlation
+![feature-target-correlation.png](https://raw.githubusercontent.com/liamarguedas/uber-eats-delivery-time/main/reports/figures/feature-target-correlation.png)
+
+From the very beginning of the project, it became evident that there existed a remarkably strong correlation between two specific features and the target: "multiple_deliveries" and "person_rating."
+
+This correlation held significant potential for further exploration and analysis in subsequent stages of the project. The relationship between these two features presented an intriguing avenue for gaining valuable insights.
+
+### Delivery person Age
+![target-age.png](https://raw.githubusercontent.com/liamarguedas/uber-eats-delivery-time/main/reports/figures/target-age.png)
+
+The distribution of ages among the delivery personnel does not exhibit a discernible pattern, as each age group appears to have a roughly equal representation of around 2000 individuals. The age range spans from 20 to 39 years.
+
+However, despite the lack of a clear distribution pattern, an interesting observation emerges regarding the delivery times of the personnel based on age. It is noted that delivery personnel older than 30 tend to have higher delivery times compared to their younger counterparts. This suggests that age, despite not displaying a distinct distribution, serves as a useful threshold for distinguishing between delivery personnel with different delivery time characteristics.
+
+Specifically, the mean delivery time for delivery personnel younger than 30 is approximately 22 minutes, whereas it increases to around 29 minutes for those older than 30. This age-based distinction in delivery times suggests that older delivery personnel consistently take longer to complete deliveries compared to their younger counterparts.
+
+![target-multi-deliveries-by-age.png](https://raw.githubusercontent.com/liamarguedas/uber-eats-delivery-time/main/reports/figures/target-multi-deliveries-by-age.png)
+
+Furthermore, it is observed that the delivery times of younger delivery personnel exhibit a larger number of outliers, indicating greater variability in their delivery performance. In contrast, older delivery personnel have fewer outliers, implying that higher delivery times among the older age group are relatively more common and less unexpected.
+
+The tendency for older delivery personnel to take longer delivery times can potentially be attributed to their higher workload. It is noted that older delivery personnel typically handle more deliveries compared to their younger counterparts. This observation suggests that the increased number of deliveries undertaken by older individuals might contribute to their longer delivery times.
+
+Apart from the impact of multiple deliveries, the statistical characteristics of the data remain largely similar across all the numerical variables. This suggests that, aside from the influence of multiple deliveries, other numerical variables do not exhibit substantial variations or distinguishable patterns among the delivery personnel.
+
+### Delivery person app rating
+
+![rating-target.png](https://raw.githubusercontent.com/liamarguedas/uber-eats-delivery-time/main/reports/figures/rating-delivery-distance.png)
+![rating-delivery-distance.png](https://raw.githubusercontent.com/liamarguedas/uber-eats-delivery-time/main/reports/figures/rating-target.png)
