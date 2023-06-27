@@ -179,3 +179,97 @@ Interestingly, while there are variations in delivery times across different day
 
 ## Solving the problem
 
+In order to solve the problem, I chose to use a Sequential Neural Network (NN) implemented with the Keras framework. The Sequential NN is a type of neural network architecture that consists of a linear stack of layers, with the output of each layer serving as the input to the next layer.
+
+By using a Sequential NN, I aimed to leverage its ability to learn complex patterns and relationships between the input features and the target variable (time_taken). The sequential nature of the network allowed for the efficient modeling of the sequential data present in the problem.
+
+I implemented the Sequential NN using the Keras framework, which provided several advantages. Keras offered a user-friendly interface for constructing neural networks, enabling faster experimentation and iteration. It also provided a wide range of pre-built layers and optimization algorithms, simplifying the process of designing and training the model.
+
+By training the Sequential NN on the available data, I was able to leverage the hidden patterns and correlations between the features to make accurate predictions of the delivery time for a given order. This approach allowed for the utilization of advanced techniques such as backpropagation and gradient descent to optimize the network's weights and biases, improving its predictive capabilities.
+
+### Model configuration
+```
+model = Sequential()
+
+model.add(Dense(27, activation = 'relu'))
+model.add(Dense(13, activation = 'relu'))
+model.add(Dense(6, activation = 'relu'))
+model.add(Dense(1))
+
+model.compile(optimizer = 'adam', loss = 'mean_squared_error')
+```
+
+### Model Best Results
+|MSE|RMSE|MAE|Explained Variance|Max Error
+| :------------ |:---------------:|:---------------:|:---------------:|:---------------:|
+|19.198|4.381| 3.504 |0.789|25.0
+
+### Model Prediction Statistics
+||Real Value|Model Prediction|Difference|Difference %|
+|:---------------:|:---------------:|:---------------:|:---------------:|:---------------:|
+|**mean**|26.23|	26.89|	-0.65|	15.41
+|**std**|9.47|	8.31|	4.34|	14.93
+|**min**|10.00|	12.00|	-16.00|	0.00|
+|**25%**|19.00|	21.00|	-4.00|	5.55|
+|**50%**|25.00|	25.00|	-1.00|	11.76|
+|**75%**|32.00|	32.00|	2.00|	20.00|
+|**max**|54.00|	59.00|	25.00|	130.00|
+
+### Model Predictions vs. Perfect Predictions
+
+![model-predictions-perfect-predictions.png](https://raw.githubusercontent.com/liamarguedas/uber-eats-delivery-time/main/reports/performance/model-predictions-perfect-predictions.png)
+
+### Predictions Difference % to real value
+
+![predictions-difference-to-real-value.png](https://raw.githubusercontent.com/liamarguedas/uber-eats-delivery-time/main/reports/performance/predictions-difference-to-real-value.png)
+
+### Distribution of predictions vs. Real Values
+
+![predictions-real-values.png](https://raw.githubusercontent.com/liamarguedas/uber-eats-delivery-time/main/reports/performance/predictions-real-values.png)
+
+### Minutes difference from real value
+
+![Minutes-difference-distribution.png](https://raw.githubusercontent.com/liamarguedas/uber-eats-delivery-time/main/reports/performance/Minutes-difference-distribution.png)
+
+### Results
+The final model was trained for a total of 25 epochs to prevent overfitting based on validation tests. During training, the model demonstrated its ability to explain up to 0.78% of the variance in the data, indicating a good fit to the underlying patterns and relationships.
+
+The performance of the model was evaluated using several metrics. The Mean Absolute Error (MAE) was approximately 3.50, the Root Mean Squared Error (RMSE) was around 4.38, and the Mean Squared Error (MSE) was approximately 19.19. These metrics provide an indication of the average magnitude of the errors between the predicted delivery times and the actual delivery times.
+
+The model's performance in terms of the difference between predicted and actual delivery times was also assessed. The error difference mode, which represents the most frequently occurring difference between predicted and actual delivery times, was approximately 1 minute. Additionally, up to 75% of the observations had an error difference equal to or lower than 2 minutes, suggesting a relatively accurate prediction performance.
+
+The worst prediction made by the model had a difference of 13 minutes compared to the actual delivery time. On the other hand, the best predictions were spot on, with a difference of 0 minutes, indicating instances where the model accurately predicted the exact delivery time.
+
+The distribution of predictions and actual values was found to be similar, suggesting that the model's predictions aligned well with the real data.
+
+Overall, the model exhibited impressive performance, with an average error of only 1 minute. This indicates its ability to make accurate predictions of delivery times based on the provided features.
+
+## Research to Production
+
+The model was prepared and packaged for deployment using a modular architecture from AWS. This architecture provides a framework that allows different development roles to work on their respective parts of the system while abstracting the complexity of integration, security, and environment configuration.
+
+![A-modular-architecture-allows-you-to-easily-assemble-different-parts-of-the-system-and-replace-them-when-needed.jpg](https://d2908q01vomqb2.cloudfront.net/fc074d501302eb2b93e2554793fcaf50b3bf7291/2021/12/29/A-modular-architecture-allows-you-to-easily-assemble-different-parts-of-the-system-and-replace-them-when-needed.jpg)
+
+By adopting a modular approach, the deployment of the model becomes more scalable, flexible, and maintainable. Each component of the system can be developed and managed independently, enabling different teams to focus on their specific tasks without impacting the overall functionality of the system.
+
+The modular architecture also facilitates the evolution of the ML workload over time. As new features or improvements are required, individual modules can be updated or replaced without disrupting the entire system. This allows for seamless integration of new technologies, algorithms, or data sources as the project progresses.
+
+Furthermore, by leveraging AWS's modular architecture, the deployment of the model benefits from the platform's built-in security measures and environment configuration. This ensures that the system is protected against potential vulnerabilities and adheres to best practices for data privacy and compliance.
+
+The blog post accompanying this deployment provides a detailed approach to building a modular ML workload. It outlines the steps involved in setting up the architecture, configuring the modules, and integrating the different components of the system. This approach aims to simplify the development and maintenance of the ML workload, promoting collaboration and efficiency across multiple teams.
+
+![The-ML-lifecycle-involves-three-macro-steps.jpg](https://d2908q01vomqb2.cloudfront.net/fc074d501302eb2b93e2554793fcaf50b3bf7291/2021/12/29/The-ML-lifecycle-involves-three-macro-steps.jpg)
+
+Overall, the adoption of a modular architecture from AWS enables the deployment of the model in a scalable, flexible, and maintainable manner. It provides an effective framework for managing the complexities of integration, security, and environment configuration, while facilitating the evolution of the ML workload over time.
+
+## Summary and Final thoughts
+
+In conclusion, this project successfully leveraged various statistical and machine learning techniques to address a real-world problem in the context of Uber Technologies Inc. The objective was to develop an efficient prediction model for delivery time by uncovering hidden patterns and relationships within a large dataset.
+
+The project followed a well-defined workflow, encompassing data collection, cleaning, and preprocessing, exploratory data analysis, model building, and evaluation. Each phase was approached systematically, utilizing tools such as Python, SQL, and visualization libraries to facilitate the analysis and modeling process.
+
+One of the notable achievements of this project was the exploration of a modular architecture from AWS for deploying the developed model. This approach offered scalability, flexibility, and maintainability, allowing for seamless integration, enhanced security, and simplified configuration across multiple teams. The accompanying blog post provided a comprehensive guide, offering insights and best practices for building and deploying modular ML workloads using AWS.
+
+As the project concludes, there are opportunities for further optimization and refinement. By incorporating additional data and exploring advanced techniques, the model's performance can be enhanced, leading to even more accurate predictions and actionable insights for Uber.
+
+In summary, this project successfully addressed the delivery time prediction problem, highlighting the value of data science methodologies and showcasing the benefits of a modular architecture for deployment. The insights gained from this project can inform decision-making and contribute to the improvement of Uber's operations.
