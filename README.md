@@ -60,4 +60,19 @@ It is worth noting that real-time delivery time prediction requires a dynamic an
 |**City**|Type of city|object
 |**Time_taken(min)**| The time taken by the delivery partner to complete the order|object
 
-## Decision-making process.
+## Decision-making process
+The main objective of the project was to develop an efficient prediction model for estimating the time taken (in minutes) for order delivery, utilizing a combination of various features as predictors. To achieve this, the project involved applying different transformation techniques, performing feature engineering, and conducting feature selection processes. These steps were undertaken with the purpose of uncovering hidden patterns and correlations among the features.
+
+By leveraging these discovered relationships, the aim was to create a robust prediction model capable of accurately estimating the delivery time for each specific order. The project sought to go beyond simple data analysis and explore the underlying factors that contribute to the delivery time, thereby enabling more precise predictions and enhancing overall operational efficiency.
+
+The entire process of addressing the problem and working towards a solution was meticulously documented in a series of notebooks. Each notebook represented a distinct stage of the project, capturing the step-by-step approach taken to analyze, transform, engineer, and select features for the prediction model.
+
+### Notebooks
+- [1.0-business-case.ipynb](https://github.com/liamarguedas/uber-eats-delivery-time/blob/main/notebooks/1.0-business-case.ipynb)
+- [2.0-acquire-and-cleanse-data.ipynb](https://github.com/liamarguedas/uber-eats-delivery-time/blob/main/notebooks/2.0-acquire-and-cleanse-data.ipynb)
+- [3.0-analyze-and-explore-data.ipynb](https://github.com/liamarguedas/uber-eats-delivery-time/blob/main/notebooks/3.0-analyze-and-explore-data.ipynb)
+- [4.0-machine-learning-modeling.ipynb](https://github.com/liamarguedas/uber-eats-delivery-time/blob/main/notebooks/4.0-machine-learning-modeling.ipynb)
+- [5.0-solving-steps-and-final-solution.ipynb](https://github.com/liamarguedas/uber-eats-delivery-time/blob/main/notebooks/5.0-solving-steps-and-final-solution.ipynb)
+
+
+ These notebooks served as comprehensive records of the methodologies employed, including any data preprocessing techniques applied, feature transformation methods utilized, and feature engineering strategies implemented. Additionally, the notebooks documented the specific algorithms, models, or techniques used for prediction, along with any parameter tuning or optimization performed. This documentation not only facilitated transparency and reproducibility but also provided a valuable resource for future reference, allowing for easy sharing of insights, methodologies, and findings with colleagues and stakeholders. By maintaining a systematic record of the entire project within the notebooks, it ensured a thorough understanding of the process and laid the foundation for future improvements and iterations.
