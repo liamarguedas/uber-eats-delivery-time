@@ -6,7 +6,7 @@ from pathlib import Path
 from setuptools import find_packages, setup
 
 # Package meta-data.
-NAME = 'uber-eats-delivery-time-prediction'
+NAME = 'UberEatsDeliveryTimePrediction'
 DESCRIPTION = "Delivery time prediction system utilizing deep learning"
 URL = "https://github.com/liamarguedas/uber-eats-delivery-time"
 EMAIL = "iliamftw2013@gmail.com"
@@ -15,16 +15,15 @@ REQUIRES_PYTHON = ">=3.6.0"
 
 long_description = DESCRIPTION
 
-# Load the package's VERSION file as a dictionary.
-about = {}
+about = {'VERSION':'1.0.0'}
 
 ROOT_DIR = Path(__file__).resolve().parent
 
-REQUIREMENTS_DIR = ROOT_DIR / 'requirements'
+REQUIREMENTS_DIR = ROOT_DIR /'requirements'
 
-PACKAGE_DIR = ROOT_DIR / 'uber-eats-delivery-time'
+PACKAGE_DIR = ROOT_DIR
 
-with open(PACKAGE_DIR / "VERSION") as f:
+with open("VERSION") as f:
 
     _version = f.read().strip()
 
